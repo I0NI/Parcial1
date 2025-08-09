@@ -1,37 +1,106 @@
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
 body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #93c5fd, #fde68a);
+  color: #1f2937;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  min-height: 100vh; 
+}
+
+.card {
+  width: min(400px, 90vw);
+  background: #ffffff;
+  border: 1px solid #e6e8ee;
+  border-radius: 12px;
+  padding: 22px 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  text-align: center;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 h1 {
-  color: #333;
+  margin-bottom: 14px;
+  font-size: 1.6rem;
+  color: #1d4ed8; 
 }
 
 label {
   display: block;
-  margin-top: 10px;
+  margin-top: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #374151;
+  text-align: left;
 }
 
-input {
-  padding: 5px;
-  width: 200px;
+input[type="number"] {
+  margin-top: 6px;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  outline: none;
+  background: #f8fafc;
+  transition: border-color .2s, box-shadow .2s, background .2s;
 }
 
-button {
-  margin-top: 10px;
-  padding: 5px 10px;
-  background-color: #4CAF50;
-  color: white;
+input[type="number"]:focus {
+  border-color: #1d4ed8;
+  box-shadow: 0 0 5px rgba(29,78,216,0.4);
+  background: #fff;
+}
+
+#btnCalcular {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 10px 16px;
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+  color: #fff;
   border: none;
+  border-radius: 10px;
   cursor: pointer;
+  font-weight: 700;
+  letter-spacing: .2px;
+  transition: transform .1s, filter .2s, box-shadow .2s;
+  box-shadow: 0 4px 10px rgba(37,99,235,0.3);
 }
 
-button:hover {
-  background-color: #45a049;
-}
+#btnCalcular:hover { filter: brightness(1.05); }
+#btnCalcular:active { transform: translateY(1px); }
 
 #resultado {
-  margin-top: 15px;
-  padding: 10px;
-  border: 1px solid #ccc;
+  margin-top: 18px;
+  padding: 14px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 12px;
+  background: #f9fafb;
 }
+
+#resultado p {
+  margin: 6px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.text-success { color: #16a34a; background: rgba(22,163,74,.12); }
+.text-warn    { color: #f59e0b; background: rgba(245,158,11,.12); }
+.text-danger  { color: #ef4444; background: rgba(239,68,68,.12); }
